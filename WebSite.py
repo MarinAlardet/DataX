@@ -1,71 +1,64 @@
 import streamlit as st
 
-# Configuration globale
-st.set_page_config(page_title="DataX", layout="wide")
-
-# Header de navigation
-def render_header():
+def render_home():# Configuration globale
+    st.set_page_config(page_title="DataX - Home", layout="wide")
+    
+    # Header avec le logo
     st.markdown(
         """
         <style>
-        .header-nav {
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: #333333;
             padding: 10px 20px;
         }
-        .header-nav a {
+        .nav {
+            display: flex;
+            gap: 20px;
+        }
+        .nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            margin: 0 10px;
-            font-size: 18px;
         }
-        .header-nav a:hover {
+        .nav a:hover {
             color: rgb(250, 173, 65);
-        }
-        .header-logo {
-            height: 50px;
         }
         </style>
         """,
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
-    st.markdown(
-        """
-        <div class="header-nav">
-            <img src="pictures/ternium_logo.png" alt="Ternium Logo" class="header-logo">
-            <div>
+    
+    col1, col2 = st.columns([1, 3])
+    with col1:
+        st.image("pictures/ternium_logo.png", width=100)
+    with col2:
+        st.markdown(
+            """
+            <div class="nav">
                 <a href="?page=home">HOME</a>
                 <a href="?page=contact">CONTACT</a>
             </div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
-# Contenu des pages
-def render_home():
+            """,
+            unsafe_allow_html=True,
+        )
+    
+    # Contenu principal avec l'image d'arrière-plan
+    st.image("pictures/Background.png", use_column_width=True)
     st.markdown(
         """
-        <div style="
-            background-image: url('pictures/Background.png');
-            background-size: cover;
-            background-position: center;
-            min-height: 70vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        ">
-            <h1 style="font-size: 60px; color: white; text-align: center;">
+        <div style="text-align: center; margin-top: -400px;">
+            <h1 style="font-size: 60px; color: white;">
                 Let the <span style="color: rgb(250, 173, 65);">Data</span> lead the way.
             </h1>
         </div>
         """,
         unsafe_allow_html=True,
     )
-
+    
+    # Pied de page
     st.markdown(
         """
         <div style="
@@ -81,6 +74,7 @@ def render_home():
         """,
         unsafe_allow_html=True,
     )
+
 
 def render_contact():
     st.markdown(
