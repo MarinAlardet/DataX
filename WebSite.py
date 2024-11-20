@@ -55,7 +55,7 @@ def render_header():
             if st.button("Home"):
                 set_page("home")
         with col_nav2:
-            if st.button("Defect")
+            if st.button("Defect"):
                 set_page("defect")
         with col_nav3:
             if st.button("Project"):
