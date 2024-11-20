@@ -25,16 +25,18 @@ def render_header():
         }
         .nav {
             display: flex;
-            gap: 20px;
+            gap: 10px; /* Réduction de l'espacement entre les boutons */
             align-items: center;
+            margin-left: 20px; /* Espace entre le logo et les boutons */
         }
         .nav button {
             background: none;
-            border: none;
+            border: none; /* Supprime le contour */
             color: white;
             font-weight: bold;
             font-size: 18px;
             cursor: pointer;
+            padding: 5px 10px; /* Réduit la taille des boutons */
         }
         .nav button:hover {
             color: rgb(250, 173, 65);
