@@ -162,11 +162,11 @@ page = query_params.get("page", ["home"])[0]
 
 render_header()
 
-if page == "home":
+if st.session_state.current_page == "home":
     render_home()
-elif page == "contact":
+elif st.session_state.current_page == "contact":
     render_contact()
-elif page == "overview":
+elif st.session_state.current_page == "overview":
     render_overview()
-elif page == "project":
+elif st.session_state.current_page == "project":
     render_project()
