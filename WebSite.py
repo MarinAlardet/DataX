@@ -48,7 +48,7 @@ def render_header():
 
     col1, col2 = st.columns([1, 2]) 
     with col1:
-        st.image("pictures/ternium_logo.png", width=100)
+        st.image("pictures/ternium_logo.png", width=200)
     with col2:
         st.markdown('<div class="nav">', unsafe_allow_html=True)
         col_nav1, col_nav2, col_nav3, col_nav4 = st.columns([1, 1, 1, 1])
