@@ -48,18 +48,31 @@ def render_header():
 
 # Contenu des pages
 def render_home():
-    st.image("pictures/Background.png", use_column_width=True)
+    # Afficher l'image et centrer le texte
     st.markdown(
         """
-        <div style="text-align: center; margin-top: -400px;">
-            <h1 style="font-size: 60px; color: white;">
+        <div style="
+            position: relative;
+            text-align: center;
+            color: white;
+        ">
+            <img src="pictures/Background.png" style="width: 100%; height: 70vh; object-fit: cover;">
+            <div style="
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 60px;
+                font-weight: bold;
+            ">
                 Let the <span style="color: rgb(250, 173, 65);">Data</span> lead the way.
-            </h1>
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
+    # Pied de page
     st.markdown(
         """
         <div style="
@@ -77,15 +90,17 @@ def render_home():
     )
 
 def render_contact():
+    # En-tête de la page contact
     st.markdown(
         """
-        <h1 style="
-            text-align: center;
-            color: rgb(250, 173, 65);
-            margin-top: 50px;
-        ">Contact Page</h1>
-        """
+        <div style="text-align: center; margin-top: 50px;">
+            <h1 style="color: rgb(250, 173, 65);">Contact Page</h1>
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
+
+    # Contenu principal
     st.markdown(
         """
         <div style="text-align: center; margin-top: 20px; color: white; background-color: #333333; padding: 20px;">
@@ -97,6 +112,7 @@ def render_contact():
         unsafe_allow_html=True,
     )
 
+    # Carte Google Maps
     st.markdown(
         """
         <iframe 
@@ -107,6 +123,7 @@ def render_contact():
         unsafe_allow_html=True,
     )
 
+    # Pied de page
     st.markdown(
         """
         <div style="
