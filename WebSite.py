@@ -1,9 +1,10 @@
 import streamlit as st
 
-def render_home():# Configuration globale
-    st.set_page_config(page_title="DataX - Home", layout="wide")
-    
-    # Header avec le logo
+# Configuration globale
+st.set_page_config(page_title="DataX", layout="wide")
+
+# Header avec le logo et navigation
+def render_header():
     st.markdown(
         """
         <style>
@@ -30,7 +31,7 @@ def render_home():# Configuration globale
         """,
         unsafe_allow_html=True,
     )
-    
+
     col1, col2 = st.columns([1, 3])
     with col1:
         st.image("pictures/ternium_logo.png", width=100)
@@ -44,8 +45,9 @@ def render_home():# Configuration globale
             """,
             unsafe_allow_html=True,
         )
-    
-    # Contenu principal avec l'image d'arrière-plan
+
+# Contenu des pages
+def render_home():
     st.image("pictures/Background.png", use_column_width=True)
     st.markdown(
         """
@@ -57,8 +59,7 @@ def render_home():# Configuration globale
         """,
         unsafe_allow_html=True,
     )
-    
-    # Pied de page
+
     st.markdown(
         """
         <div style="
@@ -74,7 +75,6 @@ def render_home():# Configuration globale
         """,
         unsafe_allow_html=True,
     )
-
 
 def render_contact():
     st.markdown(
