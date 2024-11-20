@@ -25,28 +25,28 @@ def render_header():
         }
         .nav {
             display: flex;
-            gap: 10px; /* Réduction de l'espacement entre les boutons */
+            gap: 8px;  /* Réduit l'espace entre les boutons */
             align-items: center;
-            margin-left: 20px; /* Espace entre le logo et les boutons */
         }
         .nav button {
             background: none;
-            border: none; /* Supprime le contour */
+            border: none; /* Supprime le contour des boutons */
             color: white;
             font-weight: bold;
             font-size: 18px;
             cursor: pointer;
-            padding: 5px 10px; /* Réduit la taille des boutons */
+            padding: 5px 10px;
         }
         .nav button:hover {
             color: rgb(250, 173, 65);
         }
+
         </style>
         """,
         unsafe_allow_html=True,
     )
 
-    col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([1, 5]) 
     with col1:
         st.image("pictures/ternium_logo.png", width=100)
     with col2:
