@@ -3,6 +3,13 @@ import streamlit as st
 # Configuration globale
 st.set_page_config(page_title="DataX", layout="wide")
 
+# Gestion de la navigation via une variable de session
+if "current_page" not in st.session_state:
+    st.session_state.current_page = "home"
+
+def set_page(page):
+    st.session_state.current_page = page
+
 # Header avec le logo et navigation
 def render_header():
     st.markdown(
@@ -19,12 +26,14 @@ def render_header():
             display: flex;
             gap: 20px;
         }
-        .nav a {
+        .nav button {
+            background-color: transparent;
+            border: none;
             color: white;
-            text-decoration: none;
             font-weight: bold;
+            cursor: pointer;
         }
-        .nav a:hover {
+        .nav button:hover {
             color: rgb(250, 173, 65);
         }
         </style>
@@ -36,17 +45,12 @@ def render_header():
     with col1:
         st.image("pictures/ternium_logo.png", width=100)
     with col2:
-        st.markdown(
-            """
-            <div class="nav">
-                <a href="?page=home">HOME</a>
-                <a href="?page=project">PROJECT</a>
-                <a href="?page=overview">OVERVIEW</a>
-                <a href="?page=contact">CONTACT</a>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        st.markdown('<div class="nav">', unsafe_allow_html=True)
+        col2.button("HOME", on_click=set_page, args=("home",))
+        col2.button("PROJECT", on_click=set_page, args=("project",))
+        col2.button("OVERVIEW", on_click=set_page, args=("overview",))
+        col2.button("CONTACT", on_click=set_page, args=("contact",))
+        st.markdown("</div>", unsafe_allow_html=True)
 
 # Contenu des pages
 def render_home():
@@ -99,16 +103,6 @@ def render_contact():
         unsafe_allow_html=True,
     )
 
-    st.markdown(
-        """
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14289.999992074987!2d-99.1872339!3d25.7040476!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662b175b8b54865%3A0x3fa0da31591b79ee!2sAv.%20Eugenio%20Garza%20Sada%202501%20Sur%2C%20Tecnol%C3%B3gico%2C%2064700%20Monterrey%2C%20N.L.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1698676195356!5m2!1sen!2sus"
-            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
-        </iframe>
-        """,
-        unsafe_allow_html=True,
-    )
-
 def render_overview():
     st.markdown(
         """
@@ -157,16 +151,13 @@ def render_project():
     )
 
 # Gestion de la navigation
-query_params = st.experimental_get_query_params()
-page = query_params.get("page", ["home"])[0]
-
 render_header()
 
-if page == "home":
+if st.session_state.current_page == "home":
     render_home()
-elif page == "contact":
+elif st.session_state.current_page == "contact":
     render_contact()
-elif page == "overview":
+elif st.session_state.current_page == "overview":
     render_overview()
-elif page == "project":
+elif st.session_state.current_page == "project":
     render_project()
