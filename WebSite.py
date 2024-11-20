@@ -49,10 +49,10 @@ def render_header():
         st.markdown(
             """
             <div class="nav">
-                <a href="?page=home">HOME</a>
-                <a href="?page=project">PROJECT</a>
-                <a href="?page=overview">OVERVIEW</a>
-                <a href="?page=contact">CONTACT</a>
+                <p style="cursor: pointer;" onclick="setPage('home')">Home</p>
+                <p style="cursor: pointer;" onclick="setPage('project')">Project</p>
+                <p style="cursor: pointer;" onclick="setPage('overview')">Overview</p>
+                <p style="cursor: pointer;" onclick="setPage('contact')">Contact</p>
             </div>
             """,
             unsafe_allow_html=True,
