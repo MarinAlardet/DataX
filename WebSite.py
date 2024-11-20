@@ -46,7 +46,7 @@ def render_header():
         unsafe_allow_html=True,
     )
 
-    col1, col2 = st.columns([1, 5]) 
+    col1, col2 = st.columns([1, 2]) 
     with col1:
         st.image("pictures/ternium_logo.png", width=100)
     with col2:
