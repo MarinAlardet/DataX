@@ -47,32 +47,20 @@ def render_header():
         )
 
 # Contenu des pages
+# Contenu des pages
 def render_home():
-    # Afficher l'image et centrer le texte
+    st.image("pictures/Background.png", use_column_width=True)
     st.markdown(
         """
-        <div style="
-            position: relative;
-            text-align: center;
-            color: white;
-        ">
-            <img src="pictures/Background.png" style="width: 100%; height: 70vh; object-fit: cover;">
-            <div style="
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 60px;
-                font-weight: bold;
-            ">
+        <div style="text-align: center; margin-top: -400px;">
+            <h1 style="font-size: 60px; color: white;">
                 Let the <span style="color: rgb(250, 173, 65);">Data</span> lead the way.
-            </div>
+            </h1>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
-    # Pied de page
     st.markdown(
         """
         <div style="
