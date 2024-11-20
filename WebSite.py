@@ -3,6 +3,7 @@ import streamlit as st
 # Configuration globale
 st.set_page_config(page_title="DataX", layout="wide")
 
+# Header avec le logo et navigation
 def render_header():
     st.markdown(
         """
@@ -15,15 +16,13 @@ def render_header():
             padding: 10px 20px;
         }
         .nav {
-            display: flex; /* Alignement horizontal des éléments */
-            width: 50%; /* Contrôle de la largeur de la zone de navigation */
+            display: flex;
+            gap: 20px;
         }
         .nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            font-size: 32px;
-            margin-right: 20px; /* Espacement de 20px entre chaque lien */
         }
         .nav a:hover {
             color: rgb(250, 173, 65);
@@ -35,12 +34,14 @@ def render_header():
 
     col1, col2 = st.columns([1, 3])
     with col1:
-        st.image("pictures/ternium_logo.png", width=200)
+        st.image("pictures/ternium_logo.png", width=100)
     with col2:
         st.markdown(
             """
             <div class="nav">
                 <a href="?page=home">HOME</a>
+                <a href="?page=project">PROJECT</a>
+                <a href="?page=overview">OVERVIEW</a>
                 <a href="?page=contact">CONTACT</a>
             </div>
             """,
@@ -49,13 +50,20 @@ def render_header():
 
 # Contenu des pages
 def render_home():
-    st.image("pictures/Background.png", use_column_width=True)
     st.markdown(
         """
-        <div style="text-align: center; margin-top: -400px;">
-            <h1 style="font-size: 60px; color: white;">
+        <div style="position: relative; text-align: center; color: white;">
+            <img src="pictures/Background.png" style="width: 100%; height: 70vh; object-fit: cover;">
+            <div style="
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 60px;
+                font-weight: bold;
+            ">
                 Let the <span style="color: rgb(250, 173, 65);">Data</span> lead the way.
-            </h1>
+            </div>
         </div>
         """,
         unsafe_allow_html=True,
@@ -78,7 +86,6 @@ def render_home():
     )
 
 def render_contact():
-    # En-tête de la page contact
     st.markdown(
         """
         <div style="text-align: center; margin-top: 50px;">
@@ -88,7 +95,6 @@ def render_contact():
         unsafe_allow_html=True,
     )
 
-    # Contenu principal
     st.markdown(
         """
         <div style="text-align: center; margin-top: 20px; color: white; background-color: #333333; padding: 20px;">
@@ -100,7 +106,6 @@ def render_contact():
         unsafe_allow_html=True,
     )
 
-    # Carte Google Maps
     st.markdown(
         """
         <iframe 
@@ -111,18 +116,42 @@ def render_contact():
         unsafe_allow_html=True,
     )
 
-    # Pied de page
+def render_overview():
     st.markdown(
         """
-        <div style="
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 20px;
-        ">
-            <p>Contact: DataX | Email: DataX.contact@gmail.com</p>
-            <p>© 2023 DataX All rights reserved.</p>
+        <div style="text-align: center; margin-top: 50px;">
+            <h1 style="color: white;">Overview Page</h1>
+            <img src="pictures/overview_ternium.png" style="height: 200px; width: 450px;">
+            <p style="color: white;">This dashboard provides a comprehensive view of key performance indicators (KPIs).</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+def render_project():
+    st.markdown(
+        """
+        <div style="text-align: center; margin-top: 50px;">
+            <h1 style="color: white;">Ternium Project Overview</h1>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+            <img src="pictures/ternium_team.png" style="width: 45%; height: auto;">
+            <img src="pictures/datax.png" style="width: 45%; height: auto;">
+        </div>
+        <div style="color: white; text-align: center; margin-top: 20px;">
+            <p>This project focuses on delivering a tailored solution for Ternium, concentrating on enhancing operational efficiency, streamlining processes, and incorporating innovative approaches.</p>
+            <p>The report is structured into key components: the primary objectives, the CRISP-DM methodology used for implementation, proposed solutions, and actionable recommendations.</p>
+            <h2>How we approached it?</h2>
+            <p>We employed the CRISP-DM methodology, ensuring that every step was planned effectively to meet the deadlines and achieve the desired outcomes.</p>
+            <h2>Key Phases of the Project</h2>
+            <ul style="text-align: left; margin: auto; width: 50%;">
+                <li><strong>Business Understanding:</strong> Defined Ternium's needs and challenges.</li>
+                <li><strong>Data Understanding:</strong> Collected relevant data and performed exploratory analysis.</li>
+                <li><strong>Data Preparation:</strong> Cleaned and transformed data for optimal model performance.</li>
+                <li><strong>Modeling:</strong> Developed and tested models to identify key insights.</li>
+                <li><strong>Evaluation:</strong> Assessed model performance and refined strategies.</li>
+                <li><strong>Deployment:</strong> Implemented the final solution for real-world application.</li>
+            </ul>
         </div>
         """,
         unsafe_allow_html=True,
@@ -134,7 +163,11 @@ page = query_params.get("page", ["home"])[0]
 
 render_header()
 
-if page == "contact":
-    render_contact()
-else:
+if page == "home":
     render_home()
+elif page == "contact":
+    render_contact()
+elif page == "overview":
+    render_overview()
+elif page == "project":
+    render_project()
