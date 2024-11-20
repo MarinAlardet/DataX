@@ -117,6 +117,16 @@ def render_contact():
         unsafe_allow_html=True,
     )
 
+    st.markdown(
+        """
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14289.999992074987!2d-99.1872339!3d25.7040476!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8662b175b8b54865%3A0x3fa0da31591b79ee!2sAv.%20Eugenio%20Garza%20Sada%202501%20Sur%2C%20Tecnol%C3%B3gico%2C%2064700%20Monterrey%2C%20N.L.%2C%20Mexico!5e0!3m2!1sen!2sus!4v1698676195356!5m2!1sen!2sus"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+        """,
+        unsafe_allow_html=True,
+    )
+
 def render_overview():
     st.markdown(
         """
@@ -148,10 +158,22 @@ def render_project():
         <div style="color: white; text-align: center; margin-top: 20px;">
             <p>This project focuses on delivering a tailored solution for Ternium, concentrating on enhancing operational efficiency, streamlining processes, and incorporating innovative approaches.</p>
             <p>The report is structured into key components: the primary objectives, the CRISP-DM methodology used for implementation, proposed solutions, and actionable recommendations.</p>
+            <h2>How we approached it?</h2>
+            <p>We employed the CRISP-DM methodology, ensuring that every step was planned effectively to meet the deadlines and achieve the desired outcomes.</p>
+            <h2>Key Phases of the Project</h2>
+            <ul style="text-align: left; margin: auto; width: 50%;">
+                <li><strong>Business Understanding:</strong> Defined Ternium's needs and challenges.</li>
+                <li><strong>Data Understanding:</strong> Collected relevant data and performed exploratory analysis.</li>
+                <li><strong>Data Preparation:</strong> Cleaned and transformed data for optimal model performance.</li>
+                <li><strong>Modeling:</strong> Developed and tested models to identify key insights.</li>
+                <li><strong>Evaluation:</strong> Assessed model performance and refined strategies.</li>
+                <li><strong>Deployment:</strong> Implemented the final solution for real-world application.</li>
+            </ul>
         </div>
         """,
         unsafe_allow_html=True,
     )
+
 
 # Gestion de la navigation
 render_header()
