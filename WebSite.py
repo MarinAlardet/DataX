@@ -26,14 +26,13 @@ def render_header():
             display: flex;
             gap: 20px;
         }
-        .nav button {
-            background-color: transparent;
-            border: none;
+        .nav span {
+            cursor: pointer;
             color: white;
             font-weight: bold;
-            cursor: pointer;
+            font-size: 18px;
         }
-        .nav button:hover {
+        .nav span:hover {
             color: rgb(250, 173, 65);
         }
         </style>
@@ -46,12 +45,11 @@ def render_header():
         st.image("pictures/ternium_logo.png", width=100)
     with col2:
         st.markdown('<div class="nav">', unsafe_allow_html=True)
-        col2.button("HOME", on_click=set_page, args=("home",))
-        col2.button("PROJECT", on_click=set_page, args=("project",))
-        col2.button("OVERVIEW", on_click=set_page, args=("overview",))
-        col2.button("CONTACT", on_click=set_page, args=("contact",))
+        col2.markdown('<span onclick="setPage(\'home\')">HOME</span>', unsafe_allow_html=True)
+        col2.markdown('<span onclick="setPage(\'project\')">PROJECT</span>', unsafe_allow_html=True)
+        col2.markdown('<span onclick="setPage(\'overview\')">OVERVIEW</span>', unsafe_allow_html=True)
+        col2.markdown('<span onclick="setPage(\'contact\')">CONTACT</span>', unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
-
 # Contenu des pages
 def render_home():
     st.image("pictures/Background.png", use_column_width=True)
