@@ -50,20 +50,13 @@ def render_header():
 
 # Contenu des pages
 def render_home():
+    st.image("pictures/Background.png", use_column_width=True)
     st.markdown(
         """
-        <div style="position: relative; text-align: center; color: white;">
-            <img src="pictures/Background.png" style="width: 100%; height: 70vh; object-fit: cover;">
-            <div style="
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                font-size: 60px;
-                font-weight: bold;
-            ">
+        <div style="text-align: center; margin-top: -400px;">
+            <h1 style="font-size: 60px; color: white;">
                 Let the <span style="color: rgb(250, 173, 65);">Data</span> lead the way.
-            </div>
+            </h1>
         </div>
         """,
         unsafe_allow_html=True,
@@ -121,12 +114,11 @@ def render_overview():
         """
         <div style="text-align: center; margin-top: 50px;">
             <h1 style="color: white;">Overview Page</h1>
-            <img src="pictures/overview_ternium.png" style="height: 200px; width: 450px;">
-            <p style="color: white;">This dashboard provides a comprehensive view of key performance indicators (KPIs).</p>
         </div>
         """,
         unsafe_allow_html=True,
     )
+    st.image("pictures/overview_ternium.png", caption="Key Performance Indicators (KPIs)", width=450)
 
 def render_project():
     st.markdown(
@@ -134,10 +126,17 @@ def render_project():
         <div style="text-align: center; margin-top: 50px;">
             <h1 style="color: white;">Ternium Project Overview</h1>
         </div>
-        <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
-            <img src="pictures/ternium_team.png" style="width: 45%; height: auto;">
-            <img src="pictures/datax.png" style="width: 45%; height: auto;">
-        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        st.image("pictures/ternium_team.png", use_column_width=True)
+    with col2:
+        st.image("pictures/datax.png", use_column_width=True)
+
+    st.markdown(
+        """
         <div style="color: white; text-align: center; margin-top: 20px;">
             <p>This project focuses on delivering a tailored solution for Ternium, concentrating on enhancing operational efficiency, streamlining processes, and incorporating innovative approaches.</p>
             <p>The report is structured into key components: the primary objectives, the CRISP-DM methodology used for implementation, proposed solutions, and actionable recommendations.</p>
