@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 # Configuration globale
 st.set_page_config(page_title="DataX", layout="wide")
@@ -183,7 +184,8 @@ def render_defect():
         """,
         unsafe_allow_html=True,
     )
-    
+    df defect = pd.read_csv("DataSet/processed_pacing.csv")
+    st.write(df_defect.head())
 
 # Gestion de la navigation
 render_header()
