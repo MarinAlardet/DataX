@@ -16,8 +16,9 @@ def render_header():
             padding: 10px 20px;
         }
         .nav {
-            display: center;
-            gap: 64px;
+            display: flex; /* Alignement horizontal des éléments */
+            justify-content: space-between; /* Espacement maximal entre les éléments */
+            width: 50%; /* Contrôle de la largeur de la zone de navigation */
         }
         .nav a {
             color: white;
@@ -46,6 +47,7 @@ def render_header():
             """,
             unsafe_allow_html=True,
         )
+
 
 # Contenu des pages
 def render_home():
