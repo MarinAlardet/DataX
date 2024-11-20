@@ -11,8 +11,7 @@ if "current_page" not in st.session_state:
 def set_page(page):
     st.session_state.current_page = page
 
-# Header avec le logo et navigation
-# Header avec le logo et navigation
+# Header avec navigation
 def render_header():
     st.markdown(
         """
@@ -26,18 +25,19 @@ def render_header():
         }
         .nav {
             display: flex;
-            gap: 20px; /* Espace entre les boutons */
+            gap: 8px;  /* Réduit l'espace entre les boutons */
             align-items: center;
-            justify-content: flex-start; /* Aligner les boutons sur la même ligne */
         }
-        .nav a {
+        .nav button {
+            background: none;
+            border: none; /* Supprime le contour des boutons */
             color: white;
             font-weight: bold;
             font-size: 18px;
-            text-decoration: none;
             cursor: pointer;
+            padding: 5px 10px;
         }
-        .nav a:hover {
+        .nav button:hover {
             color: rgb(250, 173, 65);
         }
         </style>
@@ -45,17 +45,25 @@ def render_header():
         unsafe_allow_html=True,
     )
 
-    col1, col2 = st.columns([1, 3])
+    col1, col2 = st.columns([1, 2]) 
     with col1:
-        st.image("pictures/ternium_logo.png", width=100)
+        st.image("pictures/ternium_logo.png", width=200)
     with col2:
         st.markdown('<div class="nav">', unsafe_allow_html=True)
-        st.markdown('<a href="?page=home">HOME</a>', unsafe_allow_html=True)
-        st.markdown('<a href="?page=project">PROJECT</a>', unsafe_allow_html=True)
-        st.markdown('<a href="?page=overview">OVERVIEW</a>', unsafe_allow_html=True)
-        st.markdown('<a href="?page=contact">CONTACT</a>', unsafe_allow_html=True)
-        st.markdown("</div>", unsafe_allow_html=True)
-
+        col_nav1, col_nav2, col_nav3, col_nav4 = st.columns([1, 1, 1, 1])
+        with col_nav1:
+            if st.button("Home"):
+                set_page("home")
+        with col_nav2:
+            if st.button("Project"):
+                set_page("project")
+        with col_nav3:
+            if st.button("Overview"):
+                set_page("overview")
+        with col_nav4:
+            if st.button("Contact"):
+                set_page("contact")
+        st.markdown('</div>', unsafe_allow_html=True)
 # Contenu des pages
 def render_home():
     st.image("pictures/Background.png", use_column_width=True)
