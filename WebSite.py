@@ -17,7 +17,7 @@ def render_header():
         }
         .nav {
             display: center;
-            gap: 20px;
+            gap: 64px;
         }
         .nav a {
             color: white;
