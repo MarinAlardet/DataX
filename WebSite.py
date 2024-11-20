@@ -13,7 +13,7 @@ def render_header():
             justify-content: space-between;
             align-items: center;
             background-color: #333333;
-            padding: 10px 20px;
+            padding: 30px 40px;
         }
         .nav {
             display: center;
@@ -40,8 +40,8 @@ def render_header():
         st.markdown(
             """
             <div class="nav">
-                <a href="?page=home">HOME</a>
-                <a href="?page=contact">CONTACT</a>
+                <a href="javascript:void(0);" onclick="window.location='?page=home';">HOME</a>
+                <a href="javascript:void(0);" onclick="window.location='?page=contact';">CONTACT</a>
             </div>
             """,
             unsafe_allow_html=True,
