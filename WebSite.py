@@ -16,13 +16,14 @@ def render_header():
             padding: 10px 20px;
         }
         .nav {
-            display: flex;
+            display: center;
             gap: 20px;
         }
         .nav a {
             color: white;
             text-decoration: none;
             font-weight: bold;
+            font-size: 32px;
         }
         .nav a:hover {
             color: rgb(250, 173, 65);
@@ -46,7 +47,6 @@ def render_header():
             unsafe_allow_html=True,
         )
 
-# Contenu des pages
 # Contenu des pages
 def render_home():
     st.image("pictures/Background.png", use_column_width=True)
