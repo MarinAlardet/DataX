@@ -50,17 +50,20 @@ def render_header():
         st.image("pictures/ternium_logo.png", width=200)
     with col2:
         st.markdown('<div class="nav">', unsafe_allow_html=True)
-        col_nav1, col_nav2, col_nav3, col_nav4 = st.columns([1, 1, 1, 1])
+        col_nav1, col_nav2, col_nav3, col_nav4, col_nav5 = st.columns([1, 1, 1, 1, 1])
         with col_nav1:
             if st.button("Home"):
                 set_page("home")
         with col_nav2:
+            if st.button("Defect")
+                set_page("defect")
+        with col_nav3:
             if st.button("Project"):
                 set_page("project")
-        with col_nav3:
+        with col_nav4:
             if st.button("Overview"):
                 set_page("overview")
-        with col_nav4:
+        with col_nav5:
             if st.button("Contact"):
                 set_page("contact")
         st.markdown('</div>', unsafe_allow_html=True)
@@ -171,7 +174,16 @@ def render_project():
         """,
         unsafe_allow_html=True,
     )
-
+def render_defect():
+    st.markdown(
+        """
+        <div style="text-align: center; margin-top: 50px;">
+            <h1 style="color: white;">Slab defect data analysis</h1>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    
 
 # Gestion de la navigation
 render_header()
@@ -184,3 +196,5 @@ elif st.session_state.current_page == "overview":
     render_overview()
 elif st.session_state.current_page == "project":
     render_project()
+elif st.session_state.current_page == "defect":
+    render_defect()
