@@ -35,7 +35,7 @@ def render_header():
     st.markdown(
         """
         <div class="header-nav">
-            <img src="pictures/ternium_logo.png" alt="Ternium Logo" class="header-logo">
+            <img src="ternium_logo.png" alt="Ternium Logo" class="header-logo">
             <div>
                 <a href="?page=home">HOME</a>
                 <a href="?page=contact">CONTACT</a>
@@ -50,7 +50,7 @@ def render_home():
     st.markdown(
         """
         <div style="
-            background-image: url('pictures/Background.png');
+            background-image: url('Background.png');
             background-size: cover;
             background-position: center;
             min-height: 70vh;
