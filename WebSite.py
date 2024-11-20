@@ -184,8 +184,6 @@ def render_defect():
         """,
         unsafe_allow_html=True,
     )
-    df_defect = pd.read_csv("DataSet/processed_pacing.csv")
-    st.write(df_defect.head())
 
 # Gestion de la navigation
 render_header()
