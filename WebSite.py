@@ -7,10 +7,11 @@ st.set_page_config(page_title="DataX", layout="wide")
 if "current_page" not in st.session_state:
     st.session_state.current_page = "home"
 
+# Fonction pour définir la page
 def set_page(page):
     st.session_state.current_page = page
 
-# Header avec le logo et navigation
+# Header avec navigation
 def render_header():
     st.markdown(
         """
@@ -27,14 +28,15 @@ def render_header():
             gap: 20px;
             align-items: center;
         }
-        .nav a {
-            cursor: pointer;
+        .nav button {
+            background: none;
+            border: none;
             color: white;
             font-weight: bold;
             font-size: 18px;
-            text-decoration: none;
+            cursor: pointer;
         }
-        .nav a:hover {
+        .nav button:hover {
             color: rgb(250, 173, 65);
         }
         </style>
@@ -46,17 +48,21 @@ def render_header():
     with col1:
         st.image("pictures/ternium_logo.png", width=100)
     with col2:
-        st.markdown(
-            """
-            <div class="nav">
-                <p style="cursor: pointer;" onclick="setPage('home')">Home</p>
-                <p style="cursor: pointer;" onclick="setPage('project')">Project</p>
-                <p style="cursor: pointer;" onclick="setPage('overview')">Overview</p>
-                <p style="cursor: pointer;" onclick="setPage('contact')">Contact</p>
-            </div>
-            """,
-            unsafe_allow_html=True,
-        )
+        st.markdown('<div class="nav">', unsafe_allow_html=True)
+        col_nav1, col_nav2, col_nav3, col_nav4 = st.columns([1, 1, 1, 1])
+        with col_nav1:
+            if st.button("Home"):
+                set_page("home")
+        with col_nav2:
+            if st.button("Project"):
+                set_page("project")
+        with col_nav3:
+            if st.button("Overview"):
+                set_page("overview")
+        with col_nav4:
+            if st.button("Contact"):
+                set_page("contact")
+        st.markdown('</div>', unsafe_allow_html=True)
 
 # Contenu des pages
 def render_home():
@@ -140,26 +146,12 @@ def render_project():
         <div style="color: white; text-align: center; margin-top: 20px;">
             <p>This project focuses on delivering a tailored solution for Ternium, concentrating on enhancing operational efficiency, streamlining processes, and incorporating innovative approaches.</p>
             <p>The report is structured into key components: the primary objectives, the CRISP-DM methodology used for implementation, proposed solutions, and actionable recommendations.</p>
-            <h2>How we approached it?</h2>
-            <p>We employed the CRISP-DM methodology, ensuring that every step was planned effectively to meet the deadlines and achieve the desired outcomes.</p>
-            <h2>Key Phases of the Project</h2>
-            <ul style="text-align: left; margin: auto; width: 50%;">
-                <li><strong>Business Understanding:</strong> Defined Ternium's needs and challenges.</li>
-                <li><strong>Data Understanding:</strong> Collected relevant data and performed exploratory analysis.</li>
-                <li><strong>Data Preparation:</strong> Cleaned and transformed data for optimal model performance.</li>
-                <li><strong>Modeling:</strong> Developed and tested models to identify key insights.</li>
-                <li><strong>Evaluation:</strong> Assessed model performance and refined strategies.</li>
-                <li><strong>Deployment:</strong> Implemented the final solution for real-world application.</li>
-            </ul>
         </div>
         """,
         unsafe_allow_html=True,
     )
 
 # Gestion de la navigation
-query_params = st.experimental_get_query_params()
-page = query_params.get("page", ["home"])[0]
-
 render_header()
 
 if st.session_state.current_page == "home":
