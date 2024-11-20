@@ -12,6 +12,7 @@ def set_page(page):
     st.session_state.current_page = page
 
 # Header avec le logo et navigation
+# Header avec le logo et navigation
 def render_header():
     st.markdown(
         """
@@ -25,19 +26,18 @@ def render_header():
         }
         .nav {
             display: flex;
-            gap: 20px;
+            gap: 20px; /* Espace entre les boutons */
             align-items: center;
-            justify-content: flex-start; /* Assurez-vous que les boutons sont bien sur la même ligne */
+            justify-content: flex-start; /* Aligner les boutons sur la même ligne */
         }
-        .nav button {
-            background-color: transparent;
-            border: none;
+        .nav a {
             color: white;
             font-weight: bold;
             font-size: 18px;
+            text-decoration: none;
             cursor: pointer;
         }
-        .nav button:hover {
+        .nav a:hover {
             color: rgb(250, 173, 65);
         }
         </style>
@@ -50,10 +50,10 @@ def render_header():
         st.image("pictures/ternium_logo.png", width=100)
     with col2:
         st.markdown('<div class="nav">', unsafe_allow_html=True)
-        st.button("HOME", on_click=set_page, args=("home",))
-        st.button("PROJECT", on_click=set_page, args=("project",))
-        st.button("OVERVIEW", on_click=set_page, args=("overview",))
-        st.button("CONTACT", on_click=set_page, args=("contact",))
+        st.markdown('<a href="?page=home">HOME</a>', unsafe_allow_html=True)
+        st.markdown('<a href="?page=project">PROJECT</a>', unsafe_allow_html=True)
+        st.markdown('<a href="?page=overview">OVERVIEW</a>', unsafe_allow_html=True)
+        st.markdown('<a href="?page=contact">CONTACT</a>', unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
 
 # Contenu des pages
