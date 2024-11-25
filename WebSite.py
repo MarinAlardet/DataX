@@ -185,55 +185,14 @@ def render_analysis():
         """,
         unsafe_allow_html=True,
     )
-    st.markdown(
-        """
-        <div style="color: white; text-align: left; margin: 20px;">
-            <h2>Key Insights</h2>
-            <p>The analysis identified recurring bottlenecks and opportunities for optimization:</p>
-            <ul>
-                <li><strong>Maintenance Optimization:</strong> Predictive and optimized scheduled maintenance could reduce long delays.</li>
-                <li><strong>Process Improvements:</strong> Workflow changes in the finishing mill, particularly around roller changes, could enhance efficiency.</li>
-                <li><strong>Addressing Space Constraints:</strong> Optimizing evacuation spaces in the slab yard and cooling bay could minimize congestion.</li>
-                <li><strong>Operational Coordination:</strong> Enhancing workflows across departments to mitigate delays caused by non-operational factors.</li>
-            </ul>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        """
-        <div style="color: white; text-align: center; margin: 20px;">
-            <h2>Distribution of Delay Durations</h2>
-            <p>Delays are heavily skewed, with most durations below 10 minutes. However, long-duration delays (>30 minutes) are significant disruptions:</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-
-    st.markdown(
-        """
-        <div style="color: white; text-align: center; margin: 20px;">
-            <h2>Key Contributors to Long Delays</h2>
-            <p>Mechanical failures and scheduled maintenance are leading causes of production delays:</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
-    
-    st.markdown(
-        """
-        <div style="text-align: left; color: white; margin: 20px;">
-            <h3>Recommendations</h3>
-            <ul>
-                <li>Implement <strong>predictive maintenance</strong> for critical equipment.</li>
-                <li>Optimize <strong>space management</strong> in evacuation areas.</li>
-                <li>Focus on <strong>finishing mill workflow enhancements</strong>.</li>
-            </ul>
-        </div>
-        """,
-        unsafe_allow_html=True,
-    )
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        st.image("pictures/graph_1.png", use_column_width=True)
+        st.image("pictures/graph_11.png", use_column_width=True)
+    with col2:
+        st.image("pictures/graph_10.png", use_column_width=True)
+        st.image("pictures/graph_12.png", use_column_width=True)
+    st.image("pictures/graph_18.png", use_column_width=True)
 
 
 # Gestion de la navigation
