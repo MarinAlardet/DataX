@@ -144,7 +144,7 @@ def render_overview():
         st.write(' ')
     
     with col2:
-        st.image("pictures/overview_ternium.png", caption="Key Performance Indicators (KPIs)", width=1200)
+        st.image("pictures/overview_ternium.png", caption="Key Performance Indicators (KPIs)", width=900)
     
     with col3:
         st.write(' ')
