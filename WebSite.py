@@ -138,7 +138,7 @@ def render_overview():
         """,
         unsafe_allow_html=True,
     )
-    st.image("pictures/overview_ternium.png", caption="Key Performance Indicators (KPIs)", width=900)
+    st.image("pictures/overview_ternium.png", caption="Key Performance Indicators (KPIs)", width=1200, align="center")
 
 def render_project():
     st.markdown(
