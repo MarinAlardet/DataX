@@ -185,16 +185,11 @@ def render_analysis():
         """,
         unsafe_allow_html=True,
     )
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        st.image("pictures/graph_1.png", width=450)
-    with col2:
-        st.image("pictures/graph_11.png", width=450)
-    with col3:
-        st.image("pictures/graph_10.png", width=450)
-    with col4:
-        st.image("pictures/graph_12.png", width=450)
-    st.image("pictures/graph_18.png", use_column_width=True)
+    st.image("pictures/graph_1.png", width=450)
+    st.image("pictures/graph_11.png", width=450)
+    st.image("pictures/graph_10.png", width=450)
+    st.image("pictures/graph_12.png", width=450)
+    st.image("pictures/graph_18.png", width=700)
 
 
 # Gestion de la navigation
