@@ -185,11 +185,11 @@ def render_analysis():
         """,
         unsafe_allow_html=True,
     )
-    st.image("pictures/graph_1.png", width=450)
-    st.image("pictures/graph_11.png", width=450)
-    st.image("pictures/graph_10.png", width=450)
-    st.image("pictures/graph_12.png", width=450)
-    st.image("pictures/graph_18.png", width=700)
+    st.image("pictures/graph_1.png", width=700)
+    st.image("pictures/graph_11.png", width=700)
+    st.image("pictures/graph_10.png", width=700)
+    st.image("pictures/graph_12.png", width=700)
+    st.image("pictures/graph_18.png", width=900)
 
 
 # Gestion de la navigation
