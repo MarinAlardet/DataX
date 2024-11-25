@@ -209,7 +209,6 @@ def render_analysis():
         """,
         unsafe_allow_html=True,
     )
-    st.image("pictures/delay_distribution.png", caption="Delay Duration Distribution", use_column_width=True)
 
     st.markdown(
         """
