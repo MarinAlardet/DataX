@@ -186,7 +186,7 @@ def render_analysis():
         unsafe_allow_html=True,
     )
 
-    st.image("pictures/graph_1.png", use_column_width=True)
+    st.image("pictures/graph_1.png", width=450)
     st.image("pictures/graph_11.png", use_column_width=True)
     st.image("pictures/graph_10.png", use_column_width=True)
     st.image("pictures/graph_12.png", use_column_width=True)
