@@ -189,7 +189,6 @@ def render_analysis():
     st.image("pictures/graph_11.png", width=700)
     st.image("pictures/graph_10.png", width=700)
     st.image("pictures/graph_12.png", width=700)
-    st.image("pictures/graph_18.png", width=900)
 
 
 # Gestion de la navigation
