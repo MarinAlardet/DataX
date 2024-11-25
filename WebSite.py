@@ -138,21 +138,8 @@ def render_overview():
         """,
         unsafe_allow_html=True,
     )
-    col1, col2, col3, col4, col5 = st.columns(5)
+    st.image("pictures/overview_ternium.png", caption="Key Performance Indicators (KPIs)", use_column_width=True)
 
-    with col1:
-        st.write(' ')
-    
-    with col2:
-        st.image("pictures/overview_ternium.png", caption="Key Performance Indicators (KPIs)", width=900)
-    
-    with col3:
-        st.write(' ')
-    with col4:
-        st.write(' ')
-    with col5:
-        st.write(' ')
-    
 
 def render_project():
     st.markdown(
