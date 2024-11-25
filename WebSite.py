@@ -53,7 +53,7 @@ def render_header():
         st.markdown('<div class="nav">', unsafe_allow_html=True)
         col_nav1, col_nav2, col_nav3, col_nav4, col_nav5 = st.columns([1, 1, 1, 1, 1])
         with col_nav1:
-            if st.button("home"):
+            if st.button("Home"):
                 set_page("home")
         with col_nav2:
             if st.button("Analysis"):
