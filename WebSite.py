@@ -185,13 +185,11 @@ def render_analysis():
         """,
         unsafe_allow_html=True,
     )
-    col1, col2 = st.columns([1, 1])
-    with col1:
-        st.image("pictures/graph_1.png", use_column_width=True)
-        st.image("pictures/graph_11.png", use_column_width=True)
-    with col2:
-        st.image("pictures/graph_10.png", use_column_width=True)
-        st.image("pictures/graph_12.png", use_column_width=True)
+
+    st.image("pictures/graph_1.png", use_column_width=True)
+    st.image("pictures/graph_11.png", use_column_width=True)
+    st.image("pictures/graph_10.png", use_column_width=True)
+    st.image("pictures/graph_12.png", use_column_width=True)
     st.image("pictures/graph_18.png", use_column_width=True)
 
 
