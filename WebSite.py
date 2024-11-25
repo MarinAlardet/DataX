@@ -53,11 +53,11 @@ def render_header():
         st.markdown('<div class="nav">', unsafe_allow_html=True)
         col_nav1, col_nav2, col_nav3, col_nav4, col_nav5 = st.columns([1, 1, 1, 1, 1])
         with col_nav1:
-            if st.button("Home"):
+            if st.button("home"):
                 set_page("home")
         with col_nav2:
-            if st.button("Defect"):
-                set_page("defect")
+            if st.button("Analysis"):
+                set_page("analysis")
         with col_nav3:
             if st.button("Project"):
                 set_page("project")
@@ -175,15 +175,66 @@ def render_project():
         """,
         unsafe_allow_html=True,
     )
-def render_defect():
+def render_analysis():
     st.markdown(
         """
         <div style="text-align: center; margin-top: 50px;">
-            <h1 style="color: white;">Slab defect data analysis</h1>
+            <h1 style="color: rgb(250, 173, 65);">Analysis of Defects and Delays</h1>
         </div>
         """,
         unsafe_allow_html=True,
     )
+    st.markdown(
+        """
+        <div style="color: white; text-align: left; margin: 20px;">
+            <h2>Key Insights</h2>
+            <p>The analysis identified recurring bottlenecks and opportunities for optimization:</p>
+            <ul>
+                <li><strong>Maintenance Optimization:</strong> Predictive and optimized scheduled maintenance could reduce long delays.</li>
+                <li><strong>Process Improvements:</strong> Workflow changes in the finishing mill, particularly around roller changes, could enhance efficiency.</li>
+                <li><strong>Addressing Space Constraints:</strong> Optimizing evacuation spaces in the slab yard and cooling bay could minimize congestion.</li>
+                <li><strong>Operational Coordination:</strong> Enhancing workflows across departments to mitigate delays caused by non-operational factors.</li>
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+    st.markdown(
+        """
+        <div style="color: white; text-align: center; margin: 20px;">
+            <h2>Distribution of Delay Durations</h2>
+            <p>Delays are heavily skewed, with most durations below 10 minutes. However, long-duration delays (>30 minutes) are significant disruptions:</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    st.image("pictures/delay_distribution.png", caption="Delay Duration Distribution", use_column_width=True)
+
+    st.markdown(
+        """
+        <div style="color: white; text-align: center; margin: 20px;">
+            <h2>Key Contributors to Long Delays</h2>
+            <p>Mechanical failures and scheduled maintenance are leading causes of production delays:</p>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    
+    st.markdown(
+        """
+        <div style="text-align: left; color: white; margin: 20px;">
+            <h3>Recommendations</h3>
+            <ul>
+                <li>Implement <strong>predictive maintenance</strong> for critical equipment.</li>
+                <li>Optimize <strong>space management</strong> in evacuation areas.</li>
+                <li>Focus on <strong>finishing mill workflow enhancements</strong>.</li>
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
 
 # Gestion de la navigation
 render_header()
@@ -196,5 +247,6 @@ elif st.session_state.current_page == "overview":
     render_overview()
 elif st.session_state.current_page == "project":
     render_project()
-elif st.session_state.current_page == "defect":
-    render_defect()
+elif st.session_state.current_page == "analysis":
+    render_analysis()
+
